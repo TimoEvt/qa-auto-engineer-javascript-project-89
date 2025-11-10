@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      // Мокаем CSS из пакета
+      // Подменяем CSS пакета на мок
       '@hexlet/chatbot-v2/dist/init.css': '/src/__mocks__/init.css',
     },
   },
@@ -19,6 +19,6 @@ export default defineConfig({
     },
   },
   css: {
-    modules: false,
+    modules: false, // Vitest не будет парсить CSS
   },
 })
