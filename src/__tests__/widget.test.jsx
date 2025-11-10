@@ -1,3 +1,4 @@
+import { vi } from 'vitest'               // <-- добавляем vi
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import steps from '../__fixtures__/steps'
@@ -22,7 +23,6 @@ import Widget from '@hexlet/chatbot-v2'
 
 test('чат-бот рендерится корректно', () => {
   render(<Widget steps={steps} />)
-  // Проверяем, что в DOM есть сообщение из steps
   expect(screen.getByText(/Привет! Я ваш виртуальный помощник/i)).toBeInTheDocument()
 })
 
