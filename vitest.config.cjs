@@ -1,3 +1,4 @@
+// vitest.config.cjs
 const { defineConfig } = require('vitest/config')
 const react = require('@vitejs/plugin-react')
 
