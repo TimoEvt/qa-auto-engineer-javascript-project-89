@@ -15,10 +15,10 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './vitest.setup.js',
     deps: {
-      inline: ['@hexlet/chatbot-v2'], // чтобы Vitest обрабатывал пакет как ESM
+      inline: ['@hexlet/chatbot-v2'],
     },
   },
   css: {
-    modules: false, // чтобы Vitest не парсил CSS
+    modules: false,
   },
 })
