@@ -1,1 +1,2 @@
+// styleMock.js
 export default {}
