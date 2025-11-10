@@ -6,6 +6,7 @@ module.exports = defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
+      // Подменяем CSS пакета на мок
       '@hexlet/chatbot-v2/dist/init.css': '/src/__mocks__/init.css',
     },
   },
@@ -18,6 +19,6 @@ module.exports = defineConfig({
     },
   },
   css: {
-    modules: false,
+    modules: false, // Vitest не будет парсить CSS
   },
 })
