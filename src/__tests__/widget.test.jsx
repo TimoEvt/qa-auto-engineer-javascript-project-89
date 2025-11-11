@@ -1,5 +1,5 @@
-import React from 'react'                // React нужен для JSX
-import { vi } from 'vitest'              // vi для моков
+import React from 'react'
+import { vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import steps from '../__fixtures__/steps'
@@ -22,4 +22,3 @@ test('чат-бот получает правильные шаги', () => {
   render(<Widget steps={steps} />)
   expect(screen.getByText(/До свидания!/i)).toBeInTheDocument()
 })
-

@@ -1,5 +1,13 @@
-import '@testing-library/jest-dom'
-import userEvent from '@testing-library/user-event'
+import { vi } from 'vitest'
+import React from 'react'
 
-global.userEvent = userEvent
-import { vi } from 'vitest'; vi.mock('@hexlet/chatbot-v2/dist/init.css', () => ({}))
+// Мокаем весь пакет @hexlet/chatbot-v2, чтобы игнорировать CSS и использовать простой рендер
+vi.mock('@hexlet/chatbot-v2', () => ({
+  default: ({ steps }) =>
+    React.createElement(
+      'div',
+      null,
+      steps.map(step => React.createElement('div', { key: step.id }, step.message))
+    ),
+}))
+
