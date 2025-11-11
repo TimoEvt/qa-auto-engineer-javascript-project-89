@@ -19,15 +19,7 @@ export default defineConfig({
     },
   },
   css: {
-    modules: false,
-    globals: true,            // чтобы тесты могли использовать глобальные функции (describe, test и т.д.)
-    environment: 'jsdom',     // среда для тестирования React-компонентов
-    setupFiles: './vitest.setup.js', // твои настройки перед тестами
-    deps: {
-      inline: ['@hexlet/chatbot-v2'], // inline-парсинг зависимости, чтобы игнорировать CSS
-    },
-  },
-  css: {
     modules: false, // отключаем парсинг CSS-модулей
   },
 })
+
