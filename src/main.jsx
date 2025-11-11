@@ -1,10 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import Widget from '@hexlet/chatbot-v2'               // импорт виджета
-import steps from '@hexlet/chatbot-v2/example-steps'  // пример шагов
-import '@hexlet/chatbot-v2/styles'                    // стили виджета
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import './index.css'; // если есть глобальные стили
 
-const container = document.getElementById('root')
+const container = document.getElementById('root');
+
 ReactDOM.createRoot(container).render(
-  Widget(steps) // рендер виджета с шагами
-)
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
