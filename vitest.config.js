@@ -1,25 +1,25 @@
-// vitest.config.js
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
+import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
       // Мокаем CSS пакета, чтобы Vitest не пытался его парсить
-      '@hexlet/chatbot-v2/dist/init.css': '/src/__mocks__/init.css',
+      '@hexlet/chatbot-v2/dist/init.css': path.resolve(__dirname, 'src/__mocks__/init.css'),
     },
   },
   test: {
-    globals: true,                 // чтобы можно было использовать describe, test, expect без импорта
-    environment: 'jsdom',          // для работы с DOM
-    setupFiles: './src/vitest.setup.js', // путь к setup файлу для jest-dom
+    globals: true,                  // использовать describe, test, expect без импорта
+    environment: 'jsdom',           // для работы с DOM
+    setupFiles: path.resolve(__dirname, 'src/vitest.setup.js'), // setup-файл
     deps: {
       inline: ['@hexlet/chatbot-v2'], // inline-парсинг зависимости
     },
-    watch: false                   // можно включить true, если хочешь авто-тестирование при изменении файлов
+    watch: false                     // можно включить true для авто-тестов
   },
   css: {
-    modules: false, // отключаем парсинг CSS-модулей
+    modules: false,                  // отключаем парсинг CSS-модулей
   },
 })
