@@ -7,8 +7,8 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      // Подставляем пустой CSS-файл вместо настоящего
-      '@hexlet/chatbot-v2/dist/init.css': '/@empty',
+      // Если нужно, можно замокать CSS импорт пустым модулем
+      // '@hexlet/chatbot-v2/dist/init.css': path.resolve(__dirname, 'src/__mocks__/styleMock.js'),
     },
   },
   test: {
@@ -16,14 +16,11 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: path.resolve(__dirname, 'src/vitest.setup.js'),
     deps: {
-      inline: ['@hexlet/chatbot-v2'], // заставляем Vitest транспилировать пакет
+      inline: ['@hexlet/chatbot-v2'], // транспилируем пакет
     },
-    // отключаем парсинг CSS для тестов
     transformMode: {
-      web: [/\.[jt]sx?$/],
+      web: [/\.[jt]sx?$/], // трансформируем только JS/TS файлы
     },
-  },
-  css: {
-    modules: false,
+    css: false, // <-- добавляем это, чтобы Vitest игнорировал CSS
   },
 })
