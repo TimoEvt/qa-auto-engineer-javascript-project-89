@@ -6,15 +6,18 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      // Все CSS подменяем на пустой модуль
+      // мок для всех CSS-файлов (в том числе из node_modules)
       '\\.css$': path.resolve(__dirname, 'src/__mocks__/styleMock.js'),
     },
   },
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: path.resolve(__dirname, 'src/vitest.setup.js'),
-    deps: { inline: ['@hexlet/chatbot-v2'] },
-    transformMode: { web: [/\.[jt]sx?$/] },
+    deps: {
+      inline: ['@hexlet/chatbot-v2'],
+    },
+    transformMode: {
+      web: [/\.[jt]sx?$/],
+    },
   },
 })
