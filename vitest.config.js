@@ -8,7 +8,7 @@ export default defineConfig({
   resolve: {
     alias: {
       // Подставляем пустой CSS-файл вместо настоящего
-      '@hexlet/chatbot-v2/dist/init.css': path.resolve(__dirname, 'src/__mocks__/init.css'),
+      '@hexlet/chatbot-v2/dist/init.css': '/@empty',
     },
   },
   test: {
