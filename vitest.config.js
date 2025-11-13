@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      // Мокируем CSS файлы пакета пустым модулем
+      // замокать CSS пакета на пустой модуль
       '@hexlet/chatbot-v2/dist/init.css': path.resolve(__dirname, 'src/__mocks__/styleMock.js'),
     },
   },
