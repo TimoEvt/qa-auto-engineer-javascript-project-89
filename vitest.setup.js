@@ -1,11 +1,12 @@
+// vitest.setup.js
 import * as matchers from '@testing-library/jest-dom/matchers'
 import { expect, vi } from 'vitest'
 import React from 'react'
 
-// глобальные jest-dom matchers
+// расширяем глобальный expect
 Object.assign(expect, matchers)
 
-// мок пакета, включая CSS
+// мок пакета @hexlet/chatbot-v2
 vi.mock('@hexlet/chatbot-v2', () => {
   return {
     default: ({ steps }) =>
@@ -13,7 +14,7 @@ vi.mock('@hexlet/chatbot-v2', () => {
         'div',
         null,
         steps.map(step => React.createElement('div', { key: step.id }, step.message)),
-        React.createElement('button', { type: 'button' }, 'Зарегистрироваться')
+        React.createElement('button', { type: 'button', 'aria-label': 'Зарегистрироваться' }, 'Зарегистрироваться')
       ),
     init: () => {}, // если есть named export
   }
