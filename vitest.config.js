@@ -1,3 +1,4 @@
+// vitest.config.js
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 import path from 'path'
@@ -17,7 +18,7 @@ export default defineConfig({
     deps: {
       inline: ['@hexlet/chatbot-v2'], // inline-парсинг зависимости
     },
-    watch: false                     // можно включить true для авто-тестов
+    watch: false                     // выключаем авто-тесты
   },
   css: {
     modules: false,                  // отключаем парсинг CSS-модулей
