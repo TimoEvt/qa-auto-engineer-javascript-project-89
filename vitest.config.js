@@ -7,20 +7,23 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      // Мокаем CSS пакета, чтобы Vitest не пытался его парсить
+      // Подставляем пустой CSS-файл вместо настоящего
       '@hexlet/chatbot-v2/dist/init.css': path.resolve(__dirname, 'src/__mocks__/init.css'),
     },
   },
   test: {
-    globals: true,                  // использовать describe, test, expect без импорта
-    environment: 'jsdom',           // для работы с DOM
-    setupFiles: path.resolve(__dirname, 'src/vitest.setup.js'), // setup-файл
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: path.resolve(__dirname, 'src/vitest.setup.js'),
     deps: {
-      inline: ['@hexlet/chatbot-v2'], // inline-парсинг зависимости
+      inline: ['@hexlet/chatbot-v2'], // заставляем Vitest транспилировать пакет
     },
-    watch: false                     // выключаем авто-тесты
+    // отключаем парсинг CSS для тестов
+    transformMode: {
+      web: [/\.[jt]sx?$/],
+    },
   },
   css: {
-    modules: false,                  // отключаем парсинг CSS-модулей
+    modules: false,
   },
 })
