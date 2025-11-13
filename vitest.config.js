@@ -11,15 +11,15 @@ export default defineConfig({
     },
   },
   test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './vitest.setup.js',
+    globals: true,                 // чтобы можно было использовать describe, test, expect без импорта
+    environment: 'jsdom',          // для работы с DOM
+    setupFiles: './src/vitest.setup.js', // путь к setup файлу для jest-dom
     deps: {
-      inline: ['@hexlet/chatbot-v2'],
+      inline: ['@hexlet/chatbot-v2'], // inline-парсинг зависимости
     },
+    watch: false                   // можно включить true, если хочешь авто-тестирование при изменении файлов
   },
   css: {
     modules: false, // отключаем парсинг CSS-модулей
   },
 })
-
